@@ -1,88 +1,63 @@
-<!doctype html>
-
-<!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="scotchTodo">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<!-- META -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
-
-	<title>Node/Angular Todo App</title>
-
-	<!-- SCROLLS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<style>
-		html 					{ overflow-y:scroll; }
-		body 					{ padding-top:50px; }
-		#todo-list 				{ margin-bottom:30px; }
-		#todo-form 	 			{ margin-bottom:50px; }
-	</style>
-
-	<!-- SPELLS -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
-
-	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
-	<script src="js/services/todos.js"></script> <!-- load our todo service -->
-	<script src="js/core.js"></script> <!-- load our main application -->
+<title>Technical Parnter Enablement Demos</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="default.css" rel="stylesheet" type="text/css" />
 
 </head>
-<!-- SET THE CONTROLLER -->
-<body ng-controller="mainController">
-	<div class="container">
+<body>
+    <div id="primaryContentContainer">
+      <div id="primaryContent">
+        <h2>Ping Identity Technical Partner Enablment Demos</h2>
+        <p>Something here about purpose of this page.  This page can only be used by those who know, there will never be anything private store here.</p>
+        <br>
+        <h3>Demos</h3>
+          <p><a href="https://tpe-pingfederate-engine.ping-devops.com/pf/idprofile.ping?LocalIdentityProfileID=y3tgV7gI329QzWha">PingOne Verify</a> Click on Register to start the PingOne Verify flow!</p>
+          <br>
+        <h3>Admin URLs</h3>
+          See the configuration for the above demos!
+          <li><a href="https://tpe-pingfederate-admin.ping-devops.com">PingFederate Admin</a></li> 
+                        <p>&emsp;&emsp;&emsp;username: auditor
+                        <p>&emsp;&emsp;&emsp;password: 2FederateMore
+          <li><a href="https://tpe-pingfederate-engine.ping-devops.com/OAuthPlayground/">Oauth Playground</a> - Resets Daily</li>
+          <li><a href="https://tpe-pingaccess-admin.ping-devops.com">PingAccess Admin</a></li>
+          <p> 
+            <br>
+        <h3>TPE Server Profiles</h3>
+          <li><a href="https://github.com/ping-enablepartners/serverprofiles/tree/main/K8-Enviroment">Demo Enviroment</a></li>
+          <li><a href="https://github.com/ping-enablepartners/apache.git">This Page</a></li>
+          <br>
+         <h3>BX Demos</h3>
+        BX demos are premade real enviroment demos using Ping Idenity's solutions
+          <li><a href="https://demo.bxfinance.org/app/">BXFinance</a> Premade real life banking demo using advanced solutions</p></li>
+          <li><a href="https://demo.bxretail.org/app/">BXRetail</a> Premade real life consumer demo using PingOne</li>
+    </div>
+  </div>
 
-		<!-- HEADER AND TODO COUNT -->
-		<div class="jumbotron text-center">
-			<h1>This is your to do list <span class="label label-info">{{ todos.length }}</span></h1>
-		</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
 
-		<!-- TODO LIST -->
-		<div id="todo-list" class="row">
-			<div class="col-sm-4 col-sm-offset-4">
 
 
-
-				<!-- LOOP OVER THE TODOS IN $scope.todos -->
-				<div class="checkbox" ng-repeat="todo in todos">
-					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-					</label>
-				</div>
-
-				<p class="text-center" ng-show="loading">
-					<span class="fa fa-spinner fa-spin fa-3x"></span>
-				</p>
-
-			</div>
-		</div>
-
-		<!-- FORM TO CREATE TODOS -->
-		<div id="todo-form" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form>
-					<div class="form-group">
-
-						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
-					</div>
-
-					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-				</form>
-			</div>
-		</div>
-
-		<div class="text-center text-muted">
-			<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-			<p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
-		</div>
-
-		<img src="img/bitnami.png" class="img-responsive" style="width:15%;margin:auto;padding-bottom:15px;padding-top:15px" alt="Bitnami Logo">
-
-                <div class="text-center text-muted">
-			<p>This is an example MEAN application hosted in <a href="https://github.com/bitnami/sample-mean">GitHub</a> and based on the <a href="https://github.com/scotch-io/node-todo">scotch node-todo application</a>.</p>
-			<p>Please check the <a href="https://github.com/bitnami/sample-mean/blob/master/README.md">README</a> in the repository to see how to deploy your own application.</p>
-		</div>
-
-	</div>
+  <div id="footer">
+    <p>Copyright &copy; 2021 Ping Identity Designed by PTE</p>
+  </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 </html>
