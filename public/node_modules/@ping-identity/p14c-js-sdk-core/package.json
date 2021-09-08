@@ -1,0 +1,30 @@
+{
+  "name": "@ping-identity/p14c-js-sdk-core",
+  "version": "1.0.0-pre.1",
+  "description": "",
+  "repository": "https://github.com/pingidentity/pingone-javascript-sdk",
+  "browser": "dist/@ping-identity/p14c-js-sdk-core.js",
+  "main": "dist/@ping-identity/p14c-js-sdk-core.js",
+  "keywords": [
+    "pingidentity",
+    "pingone",
+    "oidc",
+    "OpenId Connect",
+    "authentication",
+    "auth"
+  ],
+  "scripts": {
+    "lint": "eslint src test",
+    "build": "webpack --optimize-minimize --config webpack.config.js",
+    "test": "jest --coverage"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cross-fetch": "^3.0.5",
+    "js-cookie": "^2.2.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ]
+}
