@@ -1,0 +1,35 @@
+{
+  "name": "@ping-identity/p14c-js-sdk-jwt",
+  "version": "1.0.0-pre.1",
+  "description": "Validate access tokens",
+  "repository": "https://github.com/pingidentity/pingone-javascript-sdk",
+  "browser": "src/jwtVerifier.js",
+  "main": "src/jwtVerifier.js",
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "pingidentity",
+    "pingone",
+    "oidc",
+    "OpenId Connect",
+    "id token",
+    "token",
+    "jwt"
+  ],
+  "scripts": {
+    "lint": "eslint src test",
+    "build": "webpack --optimize-minimize --config webpack.config.js",
+    "prepare": "yarn build",
+    "test": "jest --coverage"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cross-fetch": "^3.0.4",
+    "jsrsasign": "^8.0.23"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ]
+}
